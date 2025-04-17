@@ -20,7 +20,7 @@
       grid-template-rows: repeat(6, 1fr);
       gap: 4px;
       aspect-ratio: 1/1;
-      background-color: var(--background);
+      background-color: var(--background, #f4f4f4);
       padding: 8px;
       border-radius: 4px;
       max-width: 800px;
@@ -49,11 +49,11 @@
     .collage-text {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
-      font-family: var(--font-sans);
+      font-family: var(--font-sans, sans-serif);
       font-size: 3rem;
       font-weight: 700;
       letter-spacing: -0.03em;
-      color: var(--yellow);
+      color: var(--yellow, #facc15);
       white-space: nowrap;
       user-select: none;
     }
@@ -82,13 +82,43 @@
       <div class="collage-text">Nyasha Mugwambi</div>
 
       <div class="collage">
-        <!-- 36 collage items -->
-        ${Array.from({ length: 36 }, (_, i) => {
-          const isFeature = i === 14;
-          const src = isFeature ? '/api/placeholder/800/800' : '/api/placeholder/400/400';
-          const className = isFeature ? 'collage-item feature' : 'collage-item';
-          return `<div class="${className}"><img src="${src}" alt="Image ${i + 1}"></div>`;
-        }).join('')}
+        <!-- 36 collage items with one featured at index 14 -->
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 1"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 2"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 3"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 4"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 5"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 6"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 7"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 8"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 9"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 10"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 11"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 12"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 13"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 14"></div>
+        <div class="collage-item feature"><img src="/api/placeholder/800/800" alt="Featured Image"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 16"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 17"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 18"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 19"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 20"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 21"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 22"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 23"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 24"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 25"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 26"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 27"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 28"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 29"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 30"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 31"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 32"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 33"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 34"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 35"></div>
+        <div class="collage-item"><img src="/api/placeholder/400/400" alt="Image 36"></div>
       </div>
     </div>
   </div>
