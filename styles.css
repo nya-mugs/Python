@@ -187,3 +187,76 @@ footer {
         margin: 0.5rem;
     }
 }
+/* Collage Layout */
+.collage-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 4px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--background);
+  padding: 8px;
+  border-radius: 4px;
+  flex-grow: 1;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.collage-item {
+  background-color: #ddd;
+  overflow: hidden;
+  position: relative;
+}
+
+.collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collage-item.feature {
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+  z-index: 2;
+}
+
+.collage-controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.collage-controls button {
+  background-color: var(--yellow);
+  border: none;
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .collage-wrapper {
+    flex-direction: column;
+  }
+
+  .side-text {
+    position: static;
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
