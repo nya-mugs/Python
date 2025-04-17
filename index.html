@@ -1,38 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nyasha Mugwambi – Photo Collage</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .collage-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      gap: 4px;
+      aspect-ratio: 1/1;
+      background-color: var(--background);
+      padding: 8px;
+      border-radius: 4px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .collage-item {
+      background-color: #ddd;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .collage-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .collage-item.feature {
+      grid-column: 3 / span 2;
+      grid-row: 3 / span 2;
+      z-index: 2;
+    }
+
+    .collage-text {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--yellow);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .collage-wrapper {
+        flex-direction: column;
+      }
+
+      .collage-text {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Nyasha Mugwambi</h1>
-            <p>Student| Creative </p>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-    
-    <section class="home-content">
-        <div class="container">
-            <h2>Welcome to My Portfolio</h2>
-            <p>I aim create clean, functional, and accessible web experiences.</p>
-            <p>Explore my works.</p>
-            <a href="projects.html" class="cta-button">View My Projects</a>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Nyasha Mugwambi. All rights reserved.</p>
-        </div>
-    </footer>
+  <div class="container">
+    <div class="header">
+      <h1 class="header-title">Nyasha Mugwambi</h1>
+    </div>
+
+    <div class="collage-wrapper">
+      <div class="collage-text">Nyasha Mugwambi</div>
+
+      <div class="collage">
+        <!-- 36 collage items -->
+        ${Array.from({ length: 36 }, (_, i) => {
+          const isFeature = i === 14;
+          const src = isFeature ? '/api/placeholder/800/800' : '/api/placeholder/400/400';
+          const className = isFeature ? 'collage-item feature' : 'collage-item';
+          return `<div class="${className}"><img src="${src}" alt="Image ${i + 1}"></div>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>
 </body>
 </html>
